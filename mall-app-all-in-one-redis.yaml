@@ -57,7 +57,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: mall-app-front
-        image: mall-app-front:v1
+        image: stamapp.azurecr.io/mall-app-front:v1
         ports:
         - containerPort: 80
         resources:
