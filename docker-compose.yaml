@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mall-app-back:
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+    container_name: mall-app-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+        - "6379:6379"
+
+  mall-app-front:
+    build: ./mall-app
+    image: mall-app-front:v1
+    container_name: mall-app-front
+    environment:
+      REDIS: mall-app-back
+    ports:
+        - "8080:80"
